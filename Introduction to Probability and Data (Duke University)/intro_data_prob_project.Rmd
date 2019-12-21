@@ -8,6 +8,10 @@ output:
     theme: spacelab
 ---
 
+```{r global_options}
+knitr::opts_chunk$set(fig.path='Figs/')
+```
+
 ## Setup
 
 ### Load packages
