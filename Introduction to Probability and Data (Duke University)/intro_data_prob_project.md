@@ -1,12 +1,20 @@
 ---
 title: "Exploring the BRFSS data"
 output: 
-  html_document: 
+  html_document:
     keep_md: true
-    fig_height: 4
-    highlight: pygments
-    theme: spacelab
+# output: 
+#     keep_md: true
+#     rmarkdown::github_document
+#     fig_height: 4
+#     highlight: pygments
+#     theme: spacelab
 ---
+
+
+```r
+knitr::opts_chunk$set(fig.path='Figs/')
+```
 
 ## Setup
 
@@ -96,7 +104,7 @@ ggplot(exercise.income, aes(income2, prop_exer)) +
     labs(title="Amount of people who exercised in last 30 days vs. income", x="Income", y="Amount of people who exercised in last 30 days")
 ```
 
-![](_6ee2a5c3100b9237616844a52883e240_intro_data_prob_project_files/figure-html/unnamed-chunk-2-1.png)<!-- -->
+![](Figs/unnamed-chunk-2-1.png)<!-- -->
 
 There appears to be a very strong relationship between exercising and income. Again there this observational study will not lead to any causality,we can see that higher income groups do more exercise.
 
@@ -133,7 +141,7 @@ ggplot(exercise.income.employ, aes(employ1, prop_exer)) +
          x="employment status", y="Amount of people who exercised in last 30 days")
 ```
 
-![](_6ee2a5c3100b9237616844a52883e240_intro_data_prob_project_files/figure-html/unnamed-chunk-4-1.png)<!-- -->
+![](Figs/unnamed-chunk-4-1.png)<!-- -->
 
 The employment status with clearly the largest proportion reporting having exercised in last 30 days is “A student”. And the one with the lowest is “Out of work for 1 year or more”. Does lack of work lead to decreased motivation and thus less amount of exercise?
 
@@ -185,7 +193,7 @@ For the general population in the US, is there a relation between ethnicity and 
 ggplot(data=brfss2013, aes(x=X_race)) +geom_bar(stat='count') +theme(axis.text.x = element_text(angle = 45, hjust = 1))
 ```
 
-![](_6ee2a5c3100b9237616844a52883e240_intro_data_prob_project_files/figure-html/unnamed-chunk-7-1.png)<!-- -->
+![](Figs/unnamed-chunk-7-1.png)<!-- -->
 From the above plot, we can see that the majority population is "white only" followed by "black only" and other ethnicities respectively.
 
 
@@ -193,7 +201,7 @@ From the above plot, we can see that the majority population is "white only" fol
 ggplot(data=brfss2013, aes(x=lsatisfy)) +geom_bar(stat='count') +theme(axis.text.x = element_text(angle = 45, hjust = 1))
 ```
 
-![](_6ee2a5c3100b9237616844a52883e240_intro_data_prob_project_files/figure-html/unnamed-chunk-8-1.png)<!-- -->
+![](Figs/unnamed-chunk-8-1.png)<!-- -->
 From the above plot, we can see that most data on life satisfaction is missing. Accurate results are not guaranteed because of lack of data on life satisfaction.
 
 
@@ -235,7 +243,7 @@ ggplot(data = race.satisfaction, aes(x = X_race, y = lsatisfy)) +
     ylab ("Life satisfaction")
 ```
 
-![](_6ee2a5c3100b9237616844a52883e240_intro_data_prob_project_files/figure-html/unnamed-chunk-10-1.png)<!-- -->
+![](Figs/unnamed-chunk-10-1.png)<!-- -->
 
 
 
@@ -247,7 +255,7 @@ ggplot(race.satisfaction %>% count(X_race, sex) %>%
       theme(axis.text.x = element_text(angle = 45, hjust = 1))
 ```
 
-![](_6ee2a5c3100b9237616844a52883e240_intro_data_prob_project_files/figure-html/unnamed-chunk-11-1.png)<!-- -->
+![](Figs/unnamed-chunk-11-1.png)<!-- -->
 
 We can see that the dataset contains higher females per category.
 
@@ -260,7 +268,7 @@ ggplot(race.satisfaction %>% count(lsatisfy, sex) %>%
       theme(axis.text.x = element_text(angle = 45, hjust = 1))
 ```
 
-![](_6ee2a5c3100b9237616844a52883e240_intro_data_prob_project_files/figure-html/unnamed-chunk-12-1.png)<!-- -->
+![](Figs/unnamed-chunk-12-1.png)<!-- -->
 
 We can observe that there is higher life satisfation among females over males.
 
@@ -311,7 +319,7 @@ ggplot(males %>% count(X_race, lsatisfy) %>%
       theme(axis.text.x = element_text(angle = 45, hjust = 1))
 ```
 
-![](_6ee2a5c3100b9237616844a52883e240_intro_data_prob_project_files/figure-html/unnamed-chunk-15-1.png)<!-- -->
+![](Figs/unnamed-chunk-15-1.png)<!-- -->
 
 
 ```r
@@ -324,7 +332,7 @@ ggplot(females %>% count(X_race, lsatisfy) %>%
       theme(axis.text.x = element_text(angle = 45, hjust = 1))
 ```
 
-![](_6ee2a5c3100b9237616844a52883e240_intro_data_prob_project_files/figure-html/unnamed-chunk-16-1.png)<!-- -->
+![](Figs/unnamed-chunk-16-1.png)<!-- -->
 
 We can observe that there is a correlation between ethnic groups and life satisfaction. The pattern does not vary based on gender. Although the count of males and females vary as the dataset contains more females as compared to males. 
 
@@ -369,6 +377,6 @@ ggplot(data = health.sleep, aes(x = sleptim1, y = qlhlth2 ))+
 ## Warning: Removed 12 rows containing missing values (geom_point).
 ```
 
-![](_6ee2a5c3100b9237616844a52883e240_intro_data_prob_project_files/figure-html/unnamed-chunk-18-1.png)<!-- -->
+![](Figs/unnamed-chunk-18-1.png)<!-- -->
 
 There seems to be a generally positive correlation between the hours of sleep and days of full energy. The correlation seems to be slightly stronger for females than males as the males data is more widely dispersed.
